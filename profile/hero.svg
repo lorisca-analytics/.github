@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="480" viewBox="0 0 1280 480" role="img" aria-label="Analytics Work — Work that shows its mechanism.">
+  <!-- backdrop -->
+  <rect width="1280" height="480" fill="#eef2f6"/>
+  <rect y="0" width="1280" height="8" fill="#1e2d42"/>
+  <rect y="472" width="1280" height="8" fill="#1e2d42"/>
+
+  <!-- hairline frame -->
+  <rect x="40" y="44" width="1200" height="392" fill="none" stroke="#d5dfe8" stroke-width="2"/>
+
+  <!-- left: wordmark block -->
+  <text x="88" y="112" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="20" letter-spacing="6" fill="#4a6a8f">LORISCA-ANALYTICS &#183; CASE STUDIES</text>
+
+  <text x="84" y="190" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="800" font-size="70" fill="#1e2d42">Work that shows</text>
+  <text x="84" y="262" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="800" font-size="70" fill="#1e2d42">its mechanism.</text>
+
+  <text x="88" y="308" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="23" fill="#4a6a8f">Case studies in hiring systems, data, and operations.</text>
+  <text x="88" y="338" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="23" fill="#4a6a8f">Each one states its limits alongside its results.</text>
+
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="15" fill="#1e2d42">
+    <rect x="88" y="360" width="168" height="34" rx="17" fill="#ffffff" stroke="#d5dfe8" stroke-width="1.5"/>
+    <text x="172" y="382" text-anchor="middle">TALENT SYSTEMS</text>
+    <rect x="268" y="360" width="204" height="34" rx="17" fill="#ffffff" stroke="#d5dfe8" stroke-width="1.5"/>
+    <text x="370" y="382" text-anchor="middle">ANALYTICS &amp; MODELS</text>
+    <rect x="484" y="360" width="228" height="34" rx="17" fill="#ffffff" stroke="#d5dfe8" stroke-width="1.5"/>
+    <text x="598" y="382" text-anchor="middle">STRATEGY &amp; OPERATIONS</text>
+    <rect x="724" y="360" width="140" height="34" rx="17" fill="#ffffff" stroke="#d5dfe8" stroke-width="1.5"/>
+    <text x="794" y="382" text-anchor="middle">CONSULTING</text>
+  </g>
+
+  <!-- right: typographic index -->
+  <line x1="920" y1="80" x2="920" y2="400" stroke="#d5dfe8" stroke-width="2"/>
+  <text x="956" y="112" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="20" letter-spacing="6" fill="#4a6a8f">INDEX</text>
+
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="16" fill="#1e2d42">
+    <text x="956" y="162"><tspan fill="#4a6a8f">01&#160;&#160;</tspan>TALENT SYSTEMS</text>
+    <text x="956" y="188" font-size="14" fill="#4a6a8f">1 shipped &#183; 4 in pipeline</text>
+
+    <text x="956" y="232"><tspan fill="#4a6a8f">02&#160;&#160;</tspan>ANALYTICS &amp; MODELS</text>
+    <text x="956" y="258" font-size="14" fill="#4a6a8f">7 in pipeline</text>
+
+    <text x="956" y="302"><tspan fill="#4a6a8f">03&#160;&#160;</tspan>STRATEGY &amp; OPERATIONS</text>
+    <text x="956" y="328" font-size="14" fill="#4a6a8f">8 in pipeline</text>
+
+    <text x="956" y="372"><tspan fill="#4a6a8f">04&#160;&#160;</tspan>CONSULTING</text>
+    <text x="956" y="398" font-size="14" fill="#4a6a8f">2 in pipeline</text>
+  </g>
+</svg>
