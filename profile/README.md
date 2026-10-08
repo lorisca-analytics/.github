@@ -152,7 +152,7 @@ Live-client engagements — real stakeholders, real constraints. Team-based work
 
 <!-- REPOS:START -->
 - [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) — A white-glove delivery operation losing $1,156 on 13 orders — and the fix isn't routing, it's pricing.
-- [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) — SQL analysis of 3.47M H-1B filings (2020–2023).
+- [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) — Which employers reliably sponsor H-1B business roles — SQL analysis of 3.47M filings (2020–2023)
 - [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) — Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as…
 - [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) — A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
 <!-- REPOS:END -->
