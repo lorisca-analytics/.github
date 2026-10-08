@@ -82,7 +82,7 @@ Hiring, retention, and workforce data.
 
 SQL, machine learning, and BI — built to support one decision, with limits stated.
 
-**7 in the pipeline**
+**2 shipped** · 6 in the pipeline
 
 </td>
 </tr>
@@ -93,7 +93,7 @@ SQL, machine learning, and BI — built to support one decision, with limits sta
 
 Business cases, pricing, and delivery — the numbers behind the story.
 
-**8 in the pipeline**
+**1 shipped** · 7 in the pipeline
 
 </td>
 <td width="50%" valign="top">
@@ -124,7 +124,6 @@ Live-client engagements — real stakeholders, real constraints. Team-based work
 **Analytics & Models**
 - Predicting income bracket, and knowing when to stop
 - Where a vaccine supply strategy should point
-- Where the next advertising dollar should go
 - A board bonus that looked already lost
 - A sales peak that was not growth
 - Forecasting a seasonal business three ways
@@ -136,7 +135,6 @@ Live-client engagements — real stakeholders, real constraints. Team-based work
 - Whether a Chilean neobank is actually revolutionary
 - A brand that outgrew its own positioning
 - Auditing an AI transformation pitch as the person funding it
-- A delivery loss that routing could not fix
 - Scoring a hardware launch before planning it
 - Designing a scorecard for a firm that only measured revenue
 
@@ -151,7 +149,7 @@ Live-client engagements — real stakeholders, real constraints. Team-based work
 ## All repos
 
 <!-- REPOS:START -->
-- [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) — A white-glove delivery operation losing $1,156 on 13 orders — and the fix isn't routing, it's pricing.
+- [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) — A white-glove delivery operation losing $1,156 on 13 orders.
 - [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) — Which employers reliably sponsor H-1B business roles — SQL analysis of 3.47M filings (2020–2023)
 - [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) — Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as…
 - [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) — A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
