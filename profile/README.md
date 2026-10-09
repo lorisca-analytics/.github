@@ -93,7 +93,7 @@ SQL, machine learning, and BI — built to support one decision, with limits sta
 
 Business cases, pricing, and delivery — the numbers behind the story.
 
-**1 shipped** · 7 in the pipeline
+**2 shipped** · 7 in the pipeline
 
 </td>
 <td width="50%" valign="top">
@@ -149,6 +149,7 @@ Live-client engagements — real stakeholders, real constraints. Team-based work
 ## All repos
 
 <!-- REPOS:START -->
+- [bike-venture-turnaround](https://github.com/lorisca-analytics/bike-venture-turnaround) — A marketing performance audit that pulled a team out of a Q3 collapse and back to profitability by Q6.
 - [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) — A white-glove delivery operation losing $1,156 on 13 orders.
 - [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) — Which employers reliably sponsor H-1B business roles — SQL analysis of 3.47M filings (2020–2023)
 - [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) — Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as…
