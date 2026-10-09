@@ -4,8 +4,21 @@
 
 ---
 
+## All repos
+
+<!-- REPOS:START -->
+- [bike-venture-turnaround](https://github.com/lorisca-analytics/bike-venture-turnaround) - **The Bounce-Back** — A marketing performance audit that pulled a team out of a Q3 collapse and back to profitability by Q6.
+- [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) - **Delivery Economics** — A white-glove delivery operation losing $1,156 on 13 orders.
+- [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) - **Which Employers Reliably Sponsor H-1B Business Roles** — SQL analysis of 3.47M H-1B filings (2020–2023).
+- [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) - **Massachusetts H-1B Analysis** — Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as well as analytics roles?
+- [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) - **Where Should We Spend the Next Ad Dollar?** — A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
+<!-- REPOS:END -->
+
+---
+
 ## Shipped
 
+<!-- SHIPPED:START -->
 <table>
 <tr>
 <td width="60%" valign="top">
@@ -25,7 +38,62 @@ SQL analysis of 3.47M H-1B filings (2020–2023). The business-role wage premium
 <img src="https://raw.githubusercontent.com/lorisca-analytics/h1b-sponsorship-sql-analysis/main/visuals/02-wage-premium-by-year.png" alt="Wage premium by year, business vs data roles" width="100%">
 </td>
 </tr>
+<tr>
+<td width="60%" valign="top">
+
+`ANALYTICS & MODELS`
+
+### Where Should We Spend the Next Ad Dollar?
+
+A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume. This dashboard makes the case for spending it elsewhere, and lets the room test the recommendation live.
+
+**9,994 order lines · 20% discount ceiling**
+
+[Repo](https://github.com/lorisca-analytics/superstore-discount-ceiling) · [Tableau Public](https://public.tableau.com/app/profile/lorisca.cessia.tuuk/viz/A1_EXTRACT_v3/Story1) · [Interactive dashboard](https://lorisca-analytics.github.io/superstore-discount-ceiling/dashboard/) · [All case studies](https://lorisca-analytics.github.io)
+
+</td>
+<td width="40%" valign="top">
+<img src="https://raw.githubusercontent.com/lorisca-analytics/superstore-discount-ceiling/main/assets/dashboard.png" alt="Where Should We Spend the Next Ad Dollar?: cover visual" width="100%">
+</td>
+</tr>
+<tr>
+<td width="60%" valign="top">
+
+`STRATEGY & OPERATIONS`
+
+### Delivery Economics
+
+A white-glove delivery operation losing $1,156 on 13 orders. I rebuilt the whole case from 171 raw order lines: the cost model, the 7-day operating schedule, and the operating system that runs the day.
+
+**171 order lines · 7-day schedule**
+
+[Repo](https://github.com/lorisca-analytics/delivery-economics-dashboard) · [Presentation](https://lorisca-analytics.github.io/delivery-economics-dashboard/) · [Dashboard](https://lorisca-analytics.github.io/delivery-economics-dashboard/dashboard.html) · [Operations design](https://lorisca-analytics.github.io/delivery-economics-dashboard/operations.html) · [All case studies](https://lorisca-analytics.github.io)
+
+</td>
+<td width="40%" valign="top">
+<img src="https://raw.githubusercontent.com/lorisca-analytics/delivery-economics-dashboard/main/docs/cover.svg" alt="Delivery Economics: cover visual" width="100%">
+</td>
+</tr>
+<tr>
+<td width="60%" valign="top">
+
+`STRATEGY & OPERATIONS`
+
+### The Bounce-Back
+
+A marketing performance audit that pulled a team out of a Q3 collapse and back to profitability by Q6.
+
+**6 quarters · −$360K to +$703K**
+
+[Repo](https://github.com/lorisca-analytics/bike-venture-turnaround) · [All case studies](https://lorisca-analytics.github.io)
+
+</td>
+<td width="40%" valign="top">
+<img src="https://raw.githubusercontent.com/lorisca-analytics/bike-venture-turnaround/main/charts/chart1_profit_turnaround.png" alt="Operating profit by quarter" width="100%">
+</td>
+</tr>
 </table>
+<!-- SHIPPED:END -->
 
 ---
 
@@ -65,6 +133,7 @@ I'm on an F-1 visa. Finding the right role isn't the whole job search — I need
 
 ## The lanes
 
+<!-- LANES:START -->
 <table>
 <tr>
 <td width="50%" valign="top">
@@ -100,13 +169,14 @@ Business cases, pricing, and delivery — the numbers behind the story.
 
 `CONSULTING`
 
-Live-client engagements — real stakeholders, real constraints. Team-based work with deliverables, distinct from solo analyses.
+Live-client engagements — real stakeholders, real constraints. Team-based consulting work with deliverables, distinct from solo analyses.
 
 **2 in the pipeline**
 
 </td>
 </tr>
 </table>
+<!-- LANES:END -->
 
 ---
 
@@ -115,6 +185,7 @@ Live-client engagements — real stakeholders, real constraints. Team-based work
 
 <br>
 
+<!-- PIPELINE:START -->
 **Talent Systems**
 - Cleaning a visa dataset without deleting the signal
 - The recruitment single source of truth (Bank Mega)
@@ -141,20 +212,9 @@ Live-client engagements — real stakeholders, real constraints. Team-based work
 **Consulting**
 - M&T Bank — live-client engagement (D1–D6 deliverables)
 - Autodesk AutoProc — LATAM procurement strategy
+<!-- PIPELINE:END -->
 
 </details>
-
----
-
-## All repos
-
-<!-- REPOS:START -->
-- [bike-venture-turnaround](https://github.com/lorisca-analytics/bike-venture-turnaround) — A marketing performance audit that pulled a team out of a Q3 collapse and back to profitability by Q6.
-- [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) — A white-glove delivery operation losing $1,156 on 13 orders.
-- [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) — Which employers reliably sponsor H-1B business roles — SQL analysis of 3.47M filings (2020–2023)
-- [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) — Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as…
-- [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) — A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
-<!-- REPOS:END -->
 
 ---
 
