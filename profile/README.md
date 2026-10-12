@@ -7,11 +7,12 @@
 ## All repos
 
 <!-- REPOS:START -->
-- [bike-venture-turnaround](https://github.com/lorisca-analytics/bike-venture-turnaround) - **The Bounce-Back** — A marketing performance audit that pulled a team out of a Q3 collapse and back to profitability by Q6.
-- [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) - **Delivery Economics** — A white-glove delivery operation losing $1,156 on 13 orders.
-- [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) - **Which Employers Reliably Sponsor H-1B Business Roles** — SQL analysis of 3.47M H-1B filings (2020–2023).
-- [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) - **Massachusetts H-1B Analysis** — Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as well as analytics roles?
-- [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) - **Where Should We Spend the Next Ad Dollar?** — A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
+- [bike-venture-turnaround](https://github.com/lorisca-analytics/bike-venture-turnaround) - **The Bounce-Back** - A marketing performance audit that pulled a team out of a Q3 collapse and back to profitability by Q6.
+- [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) - **Delivery Economics** - A white-glove delivery operation losing $1,156 on 13 orders.
+- [gig-worker-referral-platform](https://github.com/lorisca-analytics/gig-worker-referral-platform) - **Gig Worker Referral Platform** - The bank already banks these people. It just can't see their income.
+- [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) - **Which Employers Reliably Sponsor H-1B Business Roles** - SQL analysis of 3.47M H-1B filings (2020–2023).
+- [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) - **Massachusetts H-1B Analysis** - Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as well as analytics roles?
+- [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) - **Where Should We Spend the Next Ad Dollar?** - A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
 <!-- REPOS:END -->
 
 ---
@@ -90,6 +91,24 @@ A marketing performance audit that pulled a team out of a Q3 collapse and back t
 </td>
 <td width="40%" valign="top">
 <img src="https://raw.githubusercontent.com/lorisca-analytics/bike-venture-turnaround/main/charts/chart1_profit_turnaround.png" alt="Operating profit by quarter" width="100%">
+</td>
+</tr>
+<tr>
+<td width="60%" valign="top">
+
+`CONSULTING`
+
+### Gig Worker Referral Platform
+
+The bank already banks these people. It just can't see their income.
+
+**39-person survey · 8 interviews · 4-role prototype**
+
+[Repo](https://github.com/lorisca-analytics/gig-worker-referral-platform) · [Live prototype](https://gig-worker-referral-platform.lovable.app) · [All case studies](https://lorisca-analytics.github.io)
+
+</td>
+<td width="40%" valign="top">
+<img src="https://raw.githubusercontent.com/lorisca-analytics/gig-worker-referral-platform/main/triangle.svg" alt="Three-way referral exchange between gig worker, partner and bank" width="100%">
 </td>
 </tr>
 </table>
@@ -171,7 +190,7 @@ Business cases, pricing, and delivery — the numbers behind the story.
 
 Live-client engagements — real stakeholders, real constraints. Team-based consulting work with deliverables, distinct from solo analyses.
 
-**2 in the pipeline**
+**1 shipped** · 1 in the pipeline
 
 </td>
 </tr>
@@ -210,7 +229,6 @@ Live-client engagements — real stakeholders, real constraints. Team-based cons
 - Designing a scorecard for a firm that only measured revenue
 
 **Consulting**
-- M&T Bank — live-client engagement (D1–D6 deliverables)
 - Autodesk AutoProc — LATAM procurement strategy
 <!-- PIPELINE:END -->
 
