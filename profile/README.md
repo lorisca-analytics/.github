@@ -1,19 +1,8 @@
-<img src="./hero.svg" alt="Analytics Work — Work that shows its mechanism." width="100%">
+<img src="./hero.svg" alt="Analytics Work: work that shows its mechanism." width="100%">
 
 <p>The through-line across everything here: the obvious metric points one way, the mechanism underneath points the other.</p>
 
----
-
-## All repos
-
-<!-- REPOS:START -->
-- [bike-venture-turnaround](https://github.com/lorisca-analytics/bike-venture-turnaround) - **The Bounce-Back** - A marketing performance audit that pulled a team out of a Q3 collapse and back to profitability by Q6.
-- [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) - **Delivery Economics** - A white-glove delivery operation losing $1,156 on 13 orders.
-- [gig-worker-referral-platform](https://github.com/lorisca-analytics/gig-worker-referral-platform) - **Gig Worker Referral Platform** - The bank already banks these people. It just can't see their income.
-- [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) - **Which Employers Reliably Sponsor H-1B Business Roles** - SQL analysis of 3.47M H-1B filings (2020–2023).
-- [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) - **Massachusetts H-1B Analysis** - Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as well as analytics roles?
-- [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) - **Where Should We Spend the Next Ad Dollar?** - A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
-<!-- REPOS:END -->
+<p>Case studies by <a href="https://github.com/lori-sca">Lorisca Tuuk</a>.</p>
 
 ---
 
@@ -28,7 +17,7 @@
 
 ### Which Employers Reliably Sponsor H-1B Business Roles
 
-SQL analysis of 3.47M H-1B filings (2020–2023). The business-role wage premium survives on medians — then breaks honestly when IT managers are excluded.
+SQL analysis of 3.47M H-1B filings (2020–2023). The business-role wage premium survives on medians, then breaks honestly when IT managers are excluded.
 
 **3.47M filings · 8 queries**
 
@@ -126,17 +115,17 @@ The bank already banks these people. It just can't see their income.
 
 ### Reading the Massachusetts labor market through H-1B filings
 
-I'm on an F-1 visa. Finding the right role isn't the whole job search — I need an employer who'll go the full distance: OPT → STEM OPT → H-1B. So I read 137,866 Massachusetts H-1B filings (FY2020–2024) and asked: do the business roles I'd apply to get sponsored as often, and pay as well, as the data-and-analytics roles my visa plan leans on?
+I'm on an F-1 visa. Finding the right role isn't the whole job search. I need an employer who'll go the full distance: OPT → STEM OPT → H-1B. So I read 137,866 Massachusetts H-1B filings (FY2020–2024) and asked: do the business roles I'd apply to get sponsored as often, and pay as well, as the data-and-analytics roles my visa plan leans on?
 
-**The answer:** 13,672 vs 14,035 filings. $105,000 vs $104,000 median pay — statistically the same. 0% vs 100% STEM — the H-1B clock is tighter on the business side.
+**The answer:** 13,672 vs 14,035 filings. $105,000 vs $104,000 median pay, statistically the same. 0% vs 100% STEM, so the H-1B clock is tighter on the business side.
 
-**The correction:** an earlier version reported $115,000 for the business median — 2,583 IT managers had slipped into the business group through their occupation code. Re-ran without them: $105,000. The notebook shows exactly what changed.
+**The correction:** an earlier version reported $115,000 for the business median: 2,583 IT managers had slipped into the business group through their occupation code. Re-ran without them: $105,000. The notebook shows exactly what changed.
 
 **The walkthrough:**
-1. **Load** the Massachusetts disclosure file — 137,866 rows.
-2. **Filter** to certified H-1B filings — 123,497 rows.
-3. **Normalize** every wage to annual; report medians (typo'd pay units make averages meaningless).
-4. **Group** by government occupation codes, not keyword matching — and pull the IT managers back out.
+1. **Load** the Massachusetts disclosure file: 137,866 rows.
+2. **Filter** to certified H-1B filings: 123,497 rows.
+3. **Normalize** every wage to annual and report medians (typo'd pay units make averages meaningless).
+4. **Group** by government occupation codes, not keyword matching, and pull the IT managers back out.
 5. **Compare** with one groupby, plus bootstrap confidence intervals on the medians.
 
 [Repo](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) · [10-min video walkthrough](https://www.youtube.com/watch?v=SEite--Lkh4) · [Notebook](https://github.com/lorisca-analytics/massachusetts-h1b-analysis/blob/main/notebooks/h1b_ma_analysis.ipynb)
@@ -168,7 +157,7 @@ Hiring, retention, and workforce data.
 
 `ANALYTICS & MODELS`
 
-SQL, machine learning, and BI — built to support one decision, with limits stated.
+SQL, machine learning, and BI, built to support one decision, with limits stated.
 
 **2 shipped** · 6 in the pipeline
 
@@ -179,7 +168,7 @@ SQL, machine learning, and BI — built to support one decision, with limits sta
 
 `STRATEGY & OPERATIONS`
 
-Business cases, pricing, and delivery — the numbers behind the story.
+Business cases, pricing, and delivery: the numbers behind the story.
 
 **2 shipped** · 7 in the pipeline
 
@@ -188,7 +177,7 @@ Business cases, pricing, and delivery — the numbers behind the story.
 
 `CONSULTING`
 
-Live-client engagements — real stakeholders, real constraints. Team-based consulting work with deliverables, distinct from solo analyses.
+Live-client engagements: real stakeholders, real constraints. Team-based consulting work with deliverables, distinct from solo analyses.
 
 **1 shipped** · 1 in the pipeline
 
@@ -200,7 +189,7 @@ Live-client engagements — real stakeholders, real constraints. Team-based cons
 ---
 
 <details>
-<summary><b>In the pipeline</b> — works in progress, real titles, no filler</summary>
+<summary><b>In the pipeline</b>: works in progress, real titles, no filler</summary>
 
 <br>
 
@@ -229,10 +218,23 @@ Live-client engagements — real stakeholders, real constraints. Team-based cons
 - Designing a scorecard for a firm that only measured revenue
 
 **Consulting**
-- Autodesk AutoProc — LATAM procurement strategy
+- Autodesk AutoProc: LATAM procurement strategy
 <!-- PIPELINE:END -->
 
 </details>
+
+---
+
+## All repos
+
+<!-- REPOS:START -->
+- [bike-venture-turnaround](https://github.com/lorisca-analytics/bike-venture-turnaround) - **The Bounce-Back** - A marketing performance audit that pulled a team out of a Q3 collapse and back to profitability by Q6.
+- [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) - **Delivery Economics** - A white-glove delivery operation losing $1,156 on 13 orders.
+- [gig-worker-referral-platform](https://github.com/lorisca-analytics/gig-worker-referral-platform) - **Gig Worker Referral Platform** - The bank already banks these people. It just can't see their income.
+- [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) - **Which Employers Reliably Sponsor H-1B Business Roles** - SQL analysis of 3.47M H-1B filings (2020–2023).
+- [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) - **Massachusetts H-1B Analysis** - Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as well as analytics roles?
+- [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) - **Where Should We Spend the Next Ad Dollar?** - A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
+<!-- REPOS:END -->
 
 ---
 
