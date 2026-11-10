@@ -150,7 +150,7 @@ I'm on an F-1 visa. Finding the right role isn't the whole job search. I need an
 
 Hiring, retention, and workforce data.
 
-**1 shipped** · 4 in the pipeline
+**1 shipped** · 3 in the pipeline
 
 </td>
 <td width="50%" valign="top">
@@ -195,8 +195,7 @@ Live-client engagements: real stakeholders, real constraints. Team-based consult
 
 <!-- PIPELINE:START -->
 **Talent Systems**
-- Cleaning a visa dataset without deleting the signal
-- The recruitment single source of truth (Bank Mega)
+- The recruitment front door
 - Attrition was a promotion problem
 - Making a gender-gap contradiction visible
 
@@ -218,7 +217,7 @@ Live-client engagements: real stakeholders, real constraints. Team-based consult
 - Designing a scorecard for a firm that only measured revenue
 
 **Consulting**
-- Autodesk AutoProc: LATAM procurement strategy
+- A procurement play for a design software company
 <!-- PIPELINE:END -->
 
 </details>
