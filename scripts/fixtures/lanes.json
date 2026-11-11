@@ -1,0 +1,678 @@
+{
+  "lanes": [
+    {
+      "id": "talent",
+      "name": "Talent Systems",
+      "blurb": "Hiring, retention, and workforce data.",
+      "projects": [
+        {
+          "id": "h1b-sponsorship",
+          "title": "Which Employers Reliably Sponsor H-1B Business Roles",
+          "hook": "SQL analysis of 3.47M H-1B filings (2020–2023). The business-role wage premium survives on medians, then flips when IT managers are excluded.",
+          "metric": "3.47M filings · 8 queries",
+          "visual": "https://raw.githubusercontent.com/lorisca-analytics/h1b-sponsorship-sql-analysis/main/visuals/02-wage-premium-by-year.png",
+          "visualAlt": "Wage premium by year, business vs data roles",
+          "diagram": "https://raw.githubusercontent.com/lorisca-analytics/h1b-sponsorship-sql-analysis/main/visuals/03-durable-business-sponsors.png",
+          "diagramAlt": "Top durable business-role sponsors, 2020–2023",
+          "status": "live",
+          "links": [
+            {
+              "label": "Repo",
+              "url": "https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis",
+              "kind": "github"
+            }
+          ],
+          "body": {
+            "problem": "International graduates pick a track first and ask about visa risk later, on anecdote. Nobody could say whether business and analytics tracks differ on approval odds, or which employers sponsor every year rather than once.",
+            "approach": "Normalized 3.47M federal filings into a five-table MySQL database, then ran eight queries on volume, approval, pay, and four-year employer durability.",
+            "hers": "Reported the median that broke my own headline finding: the premium flips when IT managers are excluded.",
+            "result": "Approval gap never passed 1.7 points. Business volume +9.1% while analytics fell 6.1%. 77 durable business sponsors identified. EY leads with 13,329 filings at 97.8%.",
+            "lesson": "Visa risk is the wrong variable. The decision turns on market direction and pay, not approval odds."
+          },
+          "year": "2026",
+          "group": "mba",
+          "setting": "Solo, in two stages. Python for Massachusetts, then SQL for the whole country.",
+          "tools": [
+            "Python",
+            "pandas",
+            "MySQL"
+          ],
+          "stat": {
+            "prefix": "",
+            "num": 3.47,
+            "decimals": 2,
+            "suffix": "M",
+            "label": "federal filings analyzed"
+          },
+          "context": "International graduates choose between business and analytics roles partly on which gets sponsored. The advice they get is anecdote.",
+          "outcome": "Across 3,471,247 filings, approval rates never differed by more than 1.7 points.",
+          "calls": [
+            "Kept every duplicate: dropping them would have flipped the ranking.",
+            "Reported medians. One hourly-keyed salary turned $195,870 into $407 million.",
+            "Grouped roles by federal occupation code, not keywords."
+          ],
+          "chart": {
+            "type": "bars",
+            "title": "Durable business sponsors are few and concentrated.",
+            "caption": "Only 77 employers filed 200 or more business-role applications in every year from 2020 to 2023, against 619 for data and analytics.",
+            "items": [
+              {
+                "label": "Business roles",
+                "value": 77,
+                "display": "77",
+                "highlight": true
+              },
+              {
+                "label": "Data and analytics",
+                "value": 619,
+                "display": "619",
+                "highlight": false
+              }
+            ]
+          },
+          "trace": {
+            "problem": "Visa risk judged on anecdote",
+            "move": "3.47M filings in a five-table MySQL database",
+            "result": "Approval gap never passed 1.7 points"
+          },
+          "cardVisual": {
+            "kind": "bars",
+            "label": "Employers that sponsored every year, 2020–2023",
+            "aLabel": "Data and analytics",
+            "aValue": 619,
+            "aText": "619",
+            "bLabel": "Business roles",
+            "bValue": 77,
+            "bText": "77",
+            "big": "77"
+          }
+        },
+        {
+          "id": "recruitment-front-door",
+          "repo": "lorisca-analytics/recruitment-front-door",
+          "title": "The recruitment front door",
+          "status": "live",
+          "group": "work",
+          "hook": "Every screened candidate, from every portal, through one door. Then fixed rules decide eligibility on paper, and the interview decides selection.",
+          "metric": "Hiring turnaround about -80%",
+          "trace": {
+            "problem": "Many portals, many shapes, re-typed by hand",
+            "move": "One door, one record per person",
+            "result": "About -80% hiring turnaround"
+          },
+          "body": {
+            "problem": "Each job portal handed screened candidates over in its own export format. Recruiters re-typed each one into trackers, the same person could show up twice, and eligibility was judged by reading CVs.",
+            "approach": "Recruiters sent every screened candidate the same form link. Repeat registrations were caught by email, WhatsApp number, or name plus birth date. Fixed rules settled eligibility on paper, and each eligible candidate got a one-page case file for the interview.",
+            "hers": "I designed and ran this system at a bank in Indonesia. This repo is a rewrite from scratch with synthetic data.",
+            "result": "Hiring turnaround dropped about 80% and admin work about 60%, with 10,000+ CVs a year coming through the one door."
+          },
+          "tools": [
+            "Google Sheets",
+            "Apps Script",
+            "TypeScript",
+            "Jest"
+          ],
+          "links": [
+            {
+              "label": "Repo",
+              "url": "https://github.com/lorisca-analytics/recruitment-front-door",
+              "kind": "github"
+            }
+          ],
+          "visual": "https://raw.githubusercontent.com/lorisca-analytics/recruitment-front-door/main/docs/candidate-card.png",
+          "visualAlt": "Sample one-page candidate card with the decision trail and probe points"
+        },
+        {
+          "id": "federal-attrition-signals",
+          "repo": "lorisca-analytics/federal-attrition-signals",
+          "title": "Who leaves federal agencies first",
+          "status": "live",
+          "group": "work",
+          "year": "2026",
+          "hook": "OPM's raw files showed the Army reporting 9 departures in September 2026, against a usual month of about 1,860. OPM flags Department of War data for that month as affected by a processing change. I check coverage and split out seasonal jobs before ranking anything, then show which agencies lose permanent staff year after year.",
+          "metric": "Army: 9 separations reported in Sep 2026, against a usual month of about 1,860",
+          "trace": {
+            "problem": "Missing data and seasonal jobs skew the ranking",
+            "move": "Coverage check, permanent staff ranked apart",
+            "result": "VA and the Army top five in permanent-staff quits, FY2012 to FY2024"
+          },
+          "cardVisual": {
+            "kind": "bars",
+            "label": "Army separations in OPM's September file",
+            "aLabel": "Sep 2024",
+            "aValue": 2430,
+            "aText": "2,430",
+            "bLabel": "Sep 2026",
+            "bValue": 9,
+            "bText": "9"
+          },
+          "body": {
+            "problem": "Federal turnover numbers mislead in four ways. An agency with incomplete data looks like it kept everyone. People who left in one month show up in later files. Seasonal and temporary jobs end on a schedule and crowd the top of the quit ranking. And in 2025, exit-program departures were mostly coded as resignations, so they read like a wave of quits.",
+            "approach": "I pulled 15 years of OPM separation files and September headcounts through OPM's open API, with a pull that can stop and resume and tracks every file version. A coverage check compares each agency's monthly report with its own previous year and holds failing years out of the ranking. Rates are counted by the month a person left, for all staff and for permanent staff on regular schedules, with exit-program departures split out.",
+            "hers": "Solo project on public data. I designed the question, the checks and the data contract, and built the pull, the SQL tables and the dashboard.",
+            "result": "Seventeen agency-months since Jul 2011 fail the coverage check, including the Army and Air Force in Aug and Sep 2026. Commerce, Interior and Agriculture are in the top five for raw quit rates nearly every year, and none of them reaches the top five once seasonal and temporary jobs are left out. Among permanent staff, Veterans Affairs and the Army are in the top five in all 13 years from FY2012 to FY2024, before the 2025 exit program reshuffled the ranking."
+          },
+          "tools": [
+            "Python",
+            "SQL",
+            "DuckDB",
+            "OPM workforce data",
+            "BLS JOLTS"
+          ],
+          "links": [
+            {
+              "label": "Repo",
+              "url": "https://github.com/lorisca-analytics/federal-attrition-signals",
+              "kind": "github"
+            },
+            {
+              "label": "Dashboard",
+              "url": "https://lorisca-analytics.github.io/federal-attrition-signals/",
+              "kind": "demo"
+            }
+          ],
+          "visual": "https://raw.githubusercontent.com/lorisca-analytics/federal-attrition-signals/main/docs/dashboard-light.png",
+          "visualAlt": "Dashboard showing Army separations reported each month, with the two failing months ringed, and the agency quit ranking"
+        },
+        {
+          "id": "people-analytics-r",
+          "repo": "lorisca-analytics/people-analytics-r",
+          "title": "Why accidents rose at every site",
+          "status": "live",
+          "group": "work",
+          "year": "2026",
+          "hook": "The quick read said fund an engagement program at the one site where disengagement jumped. I checked it first. Holding each site's disengagement at its 2016 level, the 2017 accident rate barely moves, and almost all the extra accidents were mild. So I'd check how incidents get reported before spending on engagement. The same check on recruiting showed channels can't be ranked until hire source is tracked.",
+          "metric": "Disengagement explains about 3% of the rise in accidents",
+          "trace": {
+            "problem": "The obvious cause points at the wrong fix",
+            "move": "Paired tests and a what-if breakdown before any ranking",
+            "result": "Check incident reporting first, and track hire source before ranking channels"
+          },
+          "cardVisual": {
+            "kind": "bars",
+            "label": "Mild accidents, 2016 and 2017",
+            "aLabel": "2016",
+            "aValue": 87,
+            "aText": "87",
+            "bLabel": "2017",
+            "bValue": 136,
+            "bText": "136"
+          },
+          "body": {
+            "problem": "Accidents rose companywide in a year. Southfield had the biggest rise, and it is the only site where disengagement went up noticeably, so the quick read says fund an engagement program there. On recruiting, the best \"channel\" by quota attainment turns out to be the 46% of hires with no source recorded.",
+            "approach": "I treated the accident data as the same 1,470 people measured twice, with paired tests and errors grouped by employee. I recomputed 2017 with each site's 2016 disengagement to see how much of the rise it explains, and split accidents by type. On recruiting, I compared untracked hires with tracked ones before comparing channels.",
+            "hers": "Solo project on a synthetic HR dataset. I chose which questions to lead with, the checks and the framing, and wrote the R code, tests and write-up.",
+            "result": "Disengagement explains about 3% of the companywide rise. Accidents rose at all four sites and among engaged staff, and 49 of the 52 extra accidents were mild, while moderate and severe ones didn't rise detectably (38 to 41). Untracked hires leave at 13% against 28%, and once they are set aside the four channels can't be told apart."
+          },
+          "calls": [
+            "Paired tests, because the same 1,470 people appear in both years.",
+            "Kept untracked hires as their own group instead of dropping them.",
+            "Used the usual top-rating line without tuning it, and showed every other cutoff next to it."
+          ],
+          "tools": [
+            "R",
+            "dplyr",
+            "ggplot2",
+            "sandwich",
+            "testthat"
+          ],
+          "links": [
+            {
+              "label": "Repo",
+              "url": "https://github.com/lorisca-analytics/people-analytics-r",
+              "kind": "github"
+            },
+            {
+              "label": "Certificate: HR Analytics in R (DataCamp)",
+              "url": "https://www.datacamp.com/statement-of-accomplishment/course/0f0a451a6bb3359417b6edd76cd0318f2368d2e9",
+              "kind": "other"
+            }
+          ],
+          "visual": "https://raw.githubusercontent.com/lorisca-analytics/people-analytics-r/main/figures/1-accidents-by-site.png",
+          "visualAlt": "Accident rate by site in 2016 and 2017, with a what-if marker for 2017 sitting almost on top of the actual rate",
+          "diagram": "https://raw.githubusercontent.com/lorisca-analytics/people-analytics-r/main/figures/3-attrition-by-source.png",
+          "diagramAlt": "Attrition by recruiting source, with hires who have no recorded source far below every tracked channel"
+        }
+      ],
+      "pipeline": [
+        {
+          "title": "Attrition was a promotion problem"
+        },
+        {
+          "title": "Making a gender-gap contradiction visible"
+        }
+      ]
+    },
+    {
+      "id": "models",
+      "name": "Analytics & Models",
+      "blurb": "SQL, machine learning, and BI built to support one decision, with limits stated.",
+      "projects": [
+        {
+          "id": "massachusetts-h1b-analysis",
+          "title": "Massachusetts H-1B Analysis",
+          "hook": "Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as well as analytics roles?",
+          "metric": "13,672 vs 14,035 filings · $105k vs $104k medians",
+          "visual": "https://raw.githubusercontent.com/lorisca-analytics/massachusetts-h1b-analysis/main/visuals/pay-comparison.png",
+          "visualAlt": "Median pay: business roles vs data-and-analytics roles",
+          "diagram": "https://raw.githubusercontent.com/lorisca-analytics/massachusetts-h1b-analysis/main/docs/trap-insight-machine.png",
+          "diagramAlt": "Trap, Insight, Machine: the build-post framework",
+          "status": "live",
+          "links": [
+            {
+              "label": "Repo",
+              "url": "https://github.com/lorisca-analytics/massachusetts-h1b-analysis",
+              "kind": "github"
+            },
+            {
+              "label": "Video walkthrough",
+              "url": "https://www.youtube.com/watch?v=SEite--Lkh4",
+              "kind": "video"
+            }
+          ],
+          "body": {
+            "problem": "I'm on an F-1 visa. The job search means finding the right role and an employer who'll go the full distance: OPT to STEM OPT to H-1B. I needed to know whether the business roles I'd apply to get sponsored as often, and pay as well, as the data-and-analytics roles.",
+            "approach": "Filtered 137,866 Massachusetts H-1B filings (FY2020-2024) to 123,497 certified, normalized every wage to annual, grouped roles by federal occupation code instead of keywords, and compared business vs analytics with bootstrap confidence intervals on the medians.",
+            "hers": "Caught 2,583 IT managers hiding in the business group through their occupation code. They'd inflated the business median to $115,000. Re-ran without them: $105,000. The notebook shows exactly what changed.",
+            "result": "13,672 business filings vs 14,035 analytics. $105,000 vs $104,000 median pay, statistically the same. 0% vs 100% STEM: the H-1B clock is tighter on the business side.",
+            "lesson": "The visa clock decides the track. Same money, different runway."
+          },
+          "year": "2026",
+          "group": "mba",
+          "setting": "Solo. Python, pandas, matplotlib. One notebook, 22 cells, reproducible end to end.",
+          "tools": [
+            "Python",
+            "pandas",
+            "matplotlib"
+          ],
+          "stat": {
+            "prefix": "",
+            "num": 123.5,
+            "decimals": 1,
+            "suffix": "K",
+            "label": "certified H-1B filings analyzed"
+          },
+          "context": "International graduates choose between business and analytics roles partly on which gets sponsored, and whether the pay justifies the track.",
+          "outcome": "Business roles pay effectively the same as analytics roles: $105,000 vs $104,000 median. The difference is the visa clock: 0% STEM vs 100% STEM.",
+          "calls": [
+            "Kept 32,867 exact duplicates: a repeated filing is an employer sponsoring again.",
+            "Reported medians, not means. Typo'd pay units turned one $195,870 salary into $407 million.",
+            "Grouped by federal occupation code, then pulled 2,583 IT managers back out of the business group."
+          ],
+          "chart": {
+            "type": "bars",
+            "title": "From 137,866 filings to the comparison",
+            "caption": "I kept 32,867 duplicates. A repeated filing is an employer sponsoring again.",
+            "items": [
+              {
+                "label": "Raw filings",
+                "value": 137866,
+                "display": "137,866"
+              },
+              {
+                "label": "Certified, duplicates kept",
+                "value": 123497,
+                "display": "123,497"
+              },
+              {
+                "label": "Business roles",
+                "value": 13672,
+                "display": "13,672",
+                "highlight": true
+              },
+              {
+                "label": "Analytics roles",
+                "value": 14035,
+                "display": "14,035",
+                "highlight": true
+              }
+            ]
+          },
+          "trace": {
+            "problem": "Business or analytics track?",
+            "move": "Roles grouped by federal occupation code",
+            "result": "$105K vs $104K median pay"
+          },
+          "cardVisual": {
+            "kind": "bars",
+            "label": "Median pay, certified filings",
+            "aLabel": "Analytics roles",
+            "aValue": 104000,
+            "aText": "$104,000",
+            "bLabel": "Business roles",
+            "bValue": 105000,
+            "bText": "$105,000",
+            "big": "Same pay"
+          }
+        },
+        {
+          "id": "superstore-discount-ceiling",
+          "title": "Where Should We Spend the Next Ad Dollar?",
+          "hook": "A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume. This dashboard makes the case for spending it elsewhere, and lets the room test the recommendation live.",
+          "metric": "9,994 order lines · 20% discount ceiling",
+          "status": "live",
+          "links": [
+            {
+              "label": "Repo",
+              "url": "https://github.com/lorisca-analytics/superstore-discount-ceiling",
+              "kind": "github"
+            },
+            {
+              "label": "Tableau Public",
+              "url": "https://public.tableau.com/app/profile/lorisca.cessia.tuuk/viz/A1_EXTRACT_v3/Story1",
+              "kind": "demo"
+            },
+            {
+              "label": "Interactive dashboard",
+              "url": "https://lorisca-analytics.github.io/superstore-discount-ceiling/dashboard/",
+              "kind": "demo"
+            }
+          ],
+          "body": {
+            "problem": "Budget follows sales volume. Phones sells $330K, Chairs $328K, Tables is #4. So the money goes to the biggest sellers, including one that loses $17,725.",
+            "approach": "Four linked views: sales bar, sales-vs-profit scatter, discount ladder, state map. A five-point Tableau Story walks the argument from what sells to Fund / Fix / Stop.",
+            "result": "Fund Paper, Copiers, Accessories, Labels, Envelopes. Fix pricing first on Binders, Storage, Chairs. Stop funding Tables, Bookcases, Machines, Supplies. Capping discounts at 20% lifts profit 47% on its own."
+          },
+          "calls": [
+            "No discount level above 20% makes money: at or below 20% the business earns +$422K, above 20% it loses −$135K. The states confirm it independently: average discount and margin correlate at r = −0.98."
+          ],
+          "visual": "https://raw.githubusercontent.com/lorisca-analytics/superstore-discount-ceiling/main/assets/dashboard.png",
+          "visualAlt": "Where Should We Spend the Next Ad Dollar?: cover visual",
+          "tools": [
+            "Tableau"
+          ],
+          "reviewNotes": {
+            "notes": [],
+            "missing": []
+          },
+          "context": "9,994 order lines, 17 sub-categories, 49 states, 2016–2019.",
+          "trace": {
+            "problem": "Budget follows sales volume",
+            "move": "Four linked views and a Tableau Story",
+            "result": "Capping discounts at 20% lifts profit 47%"
+          },
+          "cardVisual": {
+            "kind": "swing",
+            "label": "Profit by discount level",
+            "aLabel": "Above 20%",
+            "aValue": -135,
+            "aText": "−$135K",
+            "bLabel": "20% or less",
+            "bValue": 422,
+            "bText": "+$422K",
+            "big": "+47%"
+          }
+        }
+      ],
+      "pipeline": [
+        {
+          "title": "Predicting income bracket, and knowing when to stop"
+        },
+        {
+          "title": "Where a vaccine supply strategy should point"
+        },
+        {
+          "title": "A board bonus that looked already lost"
+        },
+        {
+          "title": "A sales peak that was not growth"
+        },
+        {
+          "title": "Forecasting a seasonal business three ways"
+        },
+        {
+          "title": "Testing a straight-line forecast against reality"
+        }
+      ]
+    },
+    {
+      "id": "strategy-ops",
+      "name": "Strategy & Operations",
+      "blurb": "Business cases, pricing, and delivery: the numbers behind the story.",
+      "projects": [
+        {
+          "id": "delivery-economics-dashboard",
+          "title": "Delivery Economics",
+          "hook": "A white-glove delivery operation losing $1,156 on 13 orders. I rebuilt the whole case from 171 raw order lines: the cost model, the 7-day operating schedule, and the operating system that runs the day.",
+          "metric": "171 order lines · 7-day schedule",
+          "status": "live",
+          "links": [
+            {
+              "label": "Repo",
+              "url": "https://github.com/lorisca-analytics/delivery-economics-dashboard",
+              "kind": "github"
+            },
+            {
+              "label": "Presentation",
+              "url": "https://lorisca-analytics.github.io/delivery-economics-dashboard/",
+              "kind": "demo"
+            },
+            {
+              "label": "Dashboard",
+              "url": "https://lorisca-analytics.github.io/delivery-economics-dashboard/dashboard.html",
+              "kind": "demo"
+            },
+            {
+              "label": "Operations design",
+              "url": "https://lorisca-analytics.github.io/delivery-economics-dashboard/operations.html",
+              "kind": "demo"
+            }
+          ],
+          "body": {
+            "problem": "The flat-rate promise is a brand differentiator and a money loser: one customer pays $399 for 276 cubic feet, another pays $399 for 3,970.",
+            "approach": "Geographic clustering, bin-pack to the 1,700 cu ft truck without splitting orders, assign to days inside the 540-minute window. Three alternatives tested: two trucks (+$1,092, rejected), luxury pace (+$3,040), bigger truck (−$1,664, the only lever that wins).",
+            "result": "$6,043 cost vs $4,887 revenue: −$1,156, −23.7% margin. Eight of thirteen customers lose money. Volume-based pricing at $150 + $0.25/cu ft, and the bigger truck flips the loss into a $508 profit."
+          },
+          "context": "171 order lines, a 45-SKU item master, and customer addresses for zone mapping.",
+          "calls": [
+            "The audit caught three contradictions in my own original files. All fixed from the primary sources. The loss moved from $808 to $1,156 and the thesis held."
+          ],
+          "visual": "https://raw.githubusercontent.com/lorisca-analytics/delivery-economics-dashboard/main/docs/cover.svg",
+          "visualAlt": "Delivery Economics: cover visual",
+          "reviewNotes": {
+            "notes": [],
+            "missing": []
+          },
+          "trace": {
+            "problem": "$399 flat rate for 276 or 3,970 cu ft",
+            "move": "Cost model and a 7-day schedule",
+            "result": "A $1,156 loss flips to a $508 profit"
+          },
+          "cardVisual": {
+            "kind": "swing",
+            "label": "Profit on 13 orders",
+            "aLabel": "Flat rate today",
+            "aValue": -1156,
+            "aText": "−$1,156",
+            "bLabel": "Volume pricing, bigger truck",
+            "bValue": 508,
+            "bText": "+$508",
+            "big": "+$508"
+          }
+        },
+        {
+          "id": "bike-venture-turnaround",
+          "title": "The Bounce-Back",
+          "hook": "A marketing performance audit that pulled a team out of a Q3 collapse and back to profitability by Q6.",
+          "metric": "6 quarters · −$360K to +$703K",
+          "status": "live",
+          "links": [
+            {
+              "label": "Repo",
+              "url": "https://github.com/lorisca-analytics/bike-venture-turnaround",
+              "kind": "github"
+            }
+          ],
+          "body": {
+            "problem": "I ran analytics and HR for an international bike company that placed second after Q1, then collapsed in Q3: zero paid search, 78% of orders unfulfilled, fragmented messaging, and the quarter's worst loss (-$360K operating profit).",
+            "approach": "A diagnostic audit: benchmark every marketing dimension against the market, decompose losses by segment, trace each failure to an organizational root cause, then size a corrective plan with targets.",
+            "result": "Operating profit went from -$360K (Q3) to nearly breakeven in Q4 (-$20K) to +$703K in Q6. Revenue grew 13x off the Q3 trough."
+          },
+          "context": "Built from six quarters of a Harvard Business Publishing venture strategy simulation, where I served as VP of Business Analytics and HR.",
+          "calls": [
+            "One honest complication: Q5 shows a -$717K loss. That's not a relapse. It's a deliberate $860K R&D investment while revenue kept climbing.",
+            "The turnaround is a profit story inside a share-loss market, which is the more interesting finding and the one a hiring manager can actually interrogate."
+          ],
+          "visual": "https://raw.githubusercontent.com/lorisca-analytics/bike-venture-turnaround/main/charts/chart1_profit_turnaround.png",
+          "visualAlt": "Operating profit by quarter",
+          "reviewNotes": {
+            "notes": [],
+            "missing": []
+          },
+          "trace": {
+            "problem": "−$360K operating profit in Q3",
+            "move": "Diagnostic audit of every marketing dimension",
+            "result": "+$703K operating profit in Q6"
+          },
+          "cardVisual": {
+            "kind": "swing",
+            "label": "Operating profit",
+            "aLabel": "Q3",
+            "aValue": -360,
+            "aText": "−$360K",
+            "bLabel": "Q6",
+            "bValue": 703,
+            "bText": "+$703K",
+            "big": "+$703K"
+          }
+        },
+        {
+          "id": "relay-ai-transformation",
+          "title": "AI everywhere, without automating the moat",
+          "status": "live",
+          "group": "mba",
+          "year": "2026",
+          "hook": "The board wanted AI everywhere. The people most exposed to it were the ones who held the community together, so I designed who owns each warning and where AI may act.",
+          "metric": "11 days from warning to reorder in the case. Hours once the signal has an owner (demo on made-up data).",
+          "trace": {
+            "problem": "A warning sat 11 days with no owner",
+            "move": "One owner and two clocks per signal, AI drafts and people decide",
+            "result": "A tested demo and a plan for which work AI takes"
+          },
+          "links": [
+            {
+              "label": "Live demo",
+              "url": "https://lorisca-analytics.github.io/relay-ai-transformation/",
+              "kind": "demo"
+            },
+            {
+              "label": "Repo",
+              "url": "https://github.com/lorisca-analytics/relay-ai-transformation",
+              "kind": "github"
+            }
+          ],
+          "tools": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Node test runner"
+          ],
+          "body": {
+            "problem": "A $600M activewear brand was told to put AI everywhere. Its edge was its community, and the roles most exposed to AI were the ones delivering it. In December a demand warning sat for 11 days because nobody owned it.",
+            "approach": "I treated it as a coordination problem, turned down a $2.8M vendor engine whose contract shared customer data, and set three measures with owners and guard-rails. Then I rebuilt the prototype as a demo where every warning has an owner and two clocks.",
+            "hers": "I did the strategy work: the diagnosis, the vendor call, the response to the voice-cloning incident, the three measures, the case against a blanket ban on customer-facing AI, and the rebuilt demo. The team joined the final video presentation.",
+            "result": "A plan that says which work AI takes and who owns each call, and a tested demo that shows a warning reaching a named person in hours."
+          },
+          "repo": "lorisca-analytics/relay-ai-transformation",
+          "visual": "https://raw.githubusercontent.com/lorisca-analytics/relay-ai-transformation/main/docs/demo.png",
+          "visualAlt": "The stock alarm tab: December replayed, with the first warning marked and the 11 days vs 2 hours comparison",
+          "setting": "Team of six. I did the strategy work and rebuilt the demo. The team joined the final video.",
+          "context": "A board told a $600M activewear brand to put AI everywhere. Its edge was a community of 1,500 ambassadors, and about 180 roles doing routine language work were the ones most exposed to AI.",
+          "outcome": "In the case, a demand warning took 11 days to become a reorder. In the demo, the same warning reaches a named owner and closes in hours.",
+          "calls": [
+            "Turned down a $2.8M vendor engine whose contract let it train on customer data for other clients.",
+            "Chose private repair with the community before any public statement after an AI voice-cloning incident.",
+            "Argued against a blanket ban on customer-facing AI, because the sizing tool was already worse for plus sizes and had no owner."
+          ]
+        }
+      ],
+      "pipeline": [
+        {
+          "title": "Two identical-looking tech giants with opposite economics"
+        },
+        {
+          "title": "Cost of capital for a company that barely borrows"
+        },
+        {
+          "title": "Whether a Chilean neobank is actually revolutionary"
+        },
+        {
+          "title": "A brand that outgrew its own positioning"
+        },
+        {
+          "title": "Auditing an AI transformation pitch as the person funding it"
+        },
+        {
+          "title": "Scoring a hardware launch before planning it"
+        },
+        {
+          "title": "Designing a scorecard for a firm that only measured revenue"
+        }
+      ]
+    },
+    {
+      "id": "consulting",
+      "name": "Consulting",
+      "blurb": "Live-client engagements with real stakeholders and real constraints. Team-based consulting work with deliverables, distinct from solo analyses.",
+      "projects": [
+        {
+          "id": "gig-worker-referral-platform",
+          "title": "Gig Worker Referral Platform",
+          "hook": "The bank already banks these people. It just can't see their income.",
+          "metric": "39-person survey · 8 interviews · 4-role prototype",
+          "status": "live",
+          "links": [
+            {
+              "label": "Repo",
+              "url": "https://github.com/lorisca-analytics/gig-worker-referral-platform",
+              "kind": "github"
+            },
+            {
+              "label": "Live prototype",
+              "url": "https://gig-worker-referral-platform.lovable.app",
+              "kind": "demo"
+            }
+          ],
+          "body": {
+            "problem": "Client Bank (anonymized for publishing) checks income through payroll only, so a customer with a W-2 job and documented 1099 side income gets scored on half their pay and often auto-rejected. Those same people are the bank's future small business customers, and right now it can't even see them.",
+            "approach": "I reframed the problem from credit to recognition, designed a referral pilot where a trusted partner vouches for side income, and built a working prototype of the referral flow across four roles.",
+            "result": "I handed the bank a pilot scoped so it could say yes: one state, existing products and data tools, partner payouts paid only when a customer activates, and clear go/no-go checkpoints. The hardest open risks are named in the plan."
+          },
+          "context": "Banking strategy, customer research, working prototype. Client: Client Bank (anonymized for publishing). I led problem framing and segmentation, and built the prototype.",
+          "calls": [
+            "I caught the wrong partner type. The lead partner contact turned out to be a brand-side marketing agency, which can't vouch for anyone's income. I named it in the final pitch as the most material open item instead of quietly patching it.",
+            "I moved the pilot from person-to-person referrals to business referrals. The legal review flagged risk in individuals referring other individuals. A business partner vouching for earnings clears that concern and has skin in the game.",
+            "I built the payout logic into the prototype. The Payments Ops screen pays a partner only after a customer activates, so the cost model is something you can click through, not a claim on a slide."
+          ],
+          "visual": "https://raw.githubusercontent.com/lorisca-analytics/gig-worker-referral-platform/main/triangle.svg",
+          "visualAlt": "Three-way referral exchange between gig worker, partner and bank",
+          "reviewNotes": {
+            "notes": [],
+            "missing": []
+          },
+          "trace": {
+            "problem": "Documented side income counts as zero",
+            "move": "A partner referral pilot and a four-role prototype",
+            "result": "About $100 per activated customer vs $350 to $600"
+          },
+          "cardVisual": {
+            "kind": "bars",
+            "label": "Cost per new customer",
+            "aLabel": "Industry estimates",
+            "aValue": 350,
+            "aText": "$350 to $600",
+            "bLabel": "Pilot target",
+            "bValue": 100,
+            "bText": "About $100",
+            "big": "About $100"
+          }
+        }
+      ],
+      "pipeline": [
+        {
+          "title": "A procurement play for a design software company"
+        }
+      ]
+    }
+  ]
+}

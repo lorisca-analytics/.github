@@ -1,0 +1,46 @@
+name: Sync org page
+
+# Rebuilds the generated sections of profile/README.md and the counts in
+# profile/hero.svg from the Work hub's data/lanes.json. Runs every hour and on
+# demand. Writes a commit only when the page changed.
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/**", ".github/workflows/sync-profile.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-profile
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Test
+        run: node --test scripts/*.test.mjs
+      - name: Rebuild the page
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-profile.mjs --target org --write
+      - name: Commit if changed
+        run: |
+          if git diff --quiet; then
+            echo "Page already up to date."
+            exit 0
+          fi
+          git config user.name "Lorisca Tuuk"
+          git config user.email "loriscatuuk@gmail.com"
+          git add profile/README.md profile/hero.svg
+          git commit -m "Org page: sync with the Work hub"
+          git push

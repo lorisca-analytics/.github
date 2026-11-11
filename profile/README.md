@@ -17,7 +17,7 @@
 
 ### Which Employers Reliably Sponsor H-1B Business Roles
 
-SQL analysis of 3.47M H-1B filings (2020–2023). The business-role wage premium survives on medians, then breaks honestly when IT managers are excluded.
+SQL analysis of 3.47M H-1B filings (2020–2023). The business-role wage premium survives on medians, then flips when IT managers are excluded.
 
 **3.47M filings · 8 queries**
 
@@ -26,6 +26,60 @@ SQL analysis of 3.47M H-1B filings (2020–2023). The business-role wage premium
 </td>
 <td width="40%" valign="top">
 <img src="https://raw.githubusercontent.com/lorisca-analytics/h1b-sponsorship-sql-analysis/main/visuals/02-wage-premium-by-year.png" alt="Wage premium by year, business vs data roles" width="100%">
+</td>
+</tr>
+<tr>
+<td width="60%" valign="top">
+
+`TALENT SYSTEMS`
+
+### The recruitment front door
+
+Every screened candidate, from every portal, through one door. Then fixed rules decide eligibility on paper, and the interview decides selection.
+
+**Hiring turnaround about -80%**
+
+[Repo](https://github.com/lorisca-analytics/recruitment-front-door) · [All case studies](https://lorisca-analytics.github.io)
+
+</td>
+<td width="40%" valign="top">
+<img src="https://raw.githubusercontent.com/lorisca-analytics/recruitment-front-door/main/docs/candidate-card.png" alt="Sample one-page candidate card with the decision trail and probe points" width="100%">
+</td>
+</tr>
+<tr>
+<td width="60%" valign="top">
+
+`TALENT SYSTEMS`
+
+### Who leaves federal agencies first
+
+OPM's raw files showed the Army reporting 9 departures in September 2026, against a usual month of about 1,860. OPM flags Department of War data for that month as affected by a processing change. I check coverage and split out seasonal jobs before ranking anything, then show which agencies lose permanent staff year after year.
+
+**Army: 9 separations reported in Sep 2026, against a usual month of about 1,860**
+
+[Repo](https://github.com/lorisca-analytics/federal-attrition-signals) · [Dashboard](https://lorisca-analytics.github.io/federal-attrition-signals/) · [All case studies](https://lorisca-analytics.github.io)
+
+</td>
+<td width="40%" valign="top">
+<img src="https://raw.githubusercontent.com/lorisca-analytics/federal-attrition-signals/main/docs/dashboard-light.png" alt="Dashboard showing Army separations reported each month, with the two failing months ringed, and the agency quit ranking" width="100%">
+</td>
+</tr>
+<tr>
+<td width="60%" valign="top">
+
+`TALENT SYSTEMS`
+
+### Why accidents rose at every site
+
+The quick read said fund an engagement program at the one site where disengagement jumped. I checked it first. Holding each site's disengagement at its 2016 level, the 2017 accident rate barely moves, and almost all the extra accidents were mild. So I'd check how incidents get reported before spending on engagement. The same check on recruiting showed channels can't be ranked until hire source is tracked.
+
+**Disengagement explains about 3% of the rise in accidents**
+
+[Repo](https://github.com/lorisca-analytics/people-analytics-r) · [Certificate: HR Analytics in R (DataCamp)](https://www.datacamp.com/statement-of-accomplishment/course/0f0a451a6bb3359417b6edd76cd0318f2368d2e9) · [All case studies](https://lorisca-analytics.github.io)
+
+</td>
+<td width="40%" valign="top">
+<img src="https://raw.githubusercontent.com/lorisca-analytics/people-analytics-r/main/figures/1-accidents-by-site.png" alt="Accident rate by site in 2016 and 2017, with a what-if marker for 2017 sitting almost on top of the actual rate" width="100%">
 </td>
 </tr>
 <tr>
@@ -80,6 +134,24 @@ A marketing performance audit that pulled a team out of a Q3 collapse and back t
 </td>
 <td width="40%" valign="top">
 <img src="https://raw.githubusercontent.com/lorisca-analytics/bike-venture-turnaround/main/charts/chart1_profit_turnaround.png" alt="Operating profit by quarter" width="100%">
+</td>
+</tr>
+<tr>
+<td width="60%" valign="top">
+
+`STRATEGY & OPERATIONS`
+
+### AI everywhere, without automating the moat
+
+The board wanted AI everywhere. The people most exposed to it were the ones who held the community together, so I designed who owns each warning and where AI may act.
+
+**11 days from warning to reorder in the case. Hours once the signal has an owner (demo on made-up data).**
+
+[Repo](https://github.com/lorisca-analytics/relay-ai-transformation) · [Live demo](https://lorisca-analytics.github.io/relay-ai-transformation/) · [All case studies](https://lorisca-analytics.github.io)
+
+</td>
+<td width="40%" valign="top">
+<img src="https://raw.githubusercontent.com/lorisca-analytics/relay-ai-transformation/main/docs/demo.png" alt="The stock alarm tab: December replayed, with the first warning marked and the 11 days vs 2 hours comparison" width="100%">
 </td>
 </tr>
 <tr>
@@ -150,14 +222,14 @@ I'm on an F-1 visa. Finding the right role isn't the whole job search. I need an
 
 Hiring, retention, and workforce data.
 
-**1 shipped** · 3 in the pipeline
+**4 shipped** · 2 in the pipeline
 
 </td>
 <td width="50%" valign="top">
 
 `ANALYTICS & MODELS`
 
-SQL, machine learning, and BI, built to support one decision, with limits stated.
+SQL, machine learning, and BI built to support one decision, with limits stated.
 
 **2 shipped** · 6 in the pipeline
 
@@ -170,14 +242,14 @@ SQL, machine learning, and BI, built to support one decision, with limits stated
 
 Business cases, pricing, and delivery: the numbers behind the story.
 
-**2 shipped** · 7 in the pipeline
+**3 shipped** · 7 in the pipeline
 
 </td>
 <td width="50%" valign="top">
 
 `CONSULTING`
 
-Live-client engagements: real stakeholders, real constraints. Team-based consulting work with deliverables, distinct from solo analyses.
+Live-client engagements with real stakeholders and real constraints. Team-based consulting work with deliverables, distinct from solo analyses.
 
 **1 shipped** · 1 in the pipeline
 
@@ -195,7 +267,6 @@ Live-client engagements: real stakeholders, real constraints. Team-based consult
 
 <!-- PIPELINE:START -->
 **Talent Systems**
-- The recruitment front door
 - Attrition was a promotion problem
 - Making a gender-gap contradiction visible
 
@@ -229,9 +300,13 @@ Live-client engagements: real stakeholders, real constraints. Team-based consult
 <!-- REPOS:START -->
 - [bike-venture-turnaround](https://github.com/lorisca-analytics/bike-venture-turnaround) - **The Bounce-Back** - A marketing performance audit that pulled a team out of a Q3 collapse and back to profitability by Q6.
 - [delivery-economics-dashboard](https://github.com/lorisca-analytics/delivery-economics-dashboard) - **Delivery Economics** - A white-glove delivery operation losing $1,156 on 13 orders.
+- [federal-attrition-signals](https://github.com/lorisca-analytics/federal-attrition-signals) - **Who leaves federal agencies first** - OPM's raw files showed the Army reporting 9 departures in September 2026, against a usual month of about 1,860.
 - [gig-worker-referral-platform](https://github.com/lorisca-analytics/gig-worker-referral-platform) - **Gig Worker Referral Platform** - The bank already banks these people. It just can't see their income.
-- [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) - **Which Employers Reliably Sponsor H-1B Business Roles** - SQL analysis of 3.47M H-1B filings (2020–2023).
+- [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) - **Which Employers Reliably Sponsor H-1B Business Roles** - SQL analysis of 3.47M H-1B filings (2020–2023). The business-role wage premium survives on medians, then flips when IT managers are excluded.
 - [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) - **Massachusetts H-1B Analysis** - Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as well as analytics roles?
+- [people-analytics-r](https://github.com/lorisca-analytics/people-analytics-r) - **Why accidents rose at every site** - The quick read said fund an engagement program at the one site where disengagement jumped.
+- [recruitment-front-door](https://github.com/lorisca-analytics/recruitment-front-door) - **The recruitment front door** - Every screened candidate, from every portal, through one door.
+- [relay-ai-transformation](https://github.com/lorisca-analytics/relay-ai-transformation) - **AI everywhere, without automating the moat** - The board wanted AI everywhere. The people most exposed to it were the ones who held the community together, so I designed who owns each warning and where AI may act.
 - [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) - **Where Should We Spend the Next Ad Dollar?** - A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
 <!-- REPOS:END -->
 
