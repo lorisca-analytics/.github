@@ -69,11 +69,11 @@ OPM's raw files showed the Army reporting 9 departures in September 2026, agains
 
 `TALENT SYSTEMS`
 
-### Why accidents rose at every site
+### HR analytics in R: why accidents rose at every site
 
-The quick read said fund an engagement program at the one site where disengagement jumped. I checked it first. Holding each site's disengagement at its 2016 level, the 2017 accident rate barely moves, and almost all the extra accidents were mild. So I'd check how incidents get reported before spending on engagement. The same check on recruiting showed channels can't be ranked until hire source is tracked.
+An HR analytics case on employee data from a 1,470-person company. The quick read said fund an engagement program at the one site where disengagement jumped. I checked it first. Holding each site's disengagement at its 2016 level, the 2017 accident rate barely moves, and almost all the extra accidents were mild. So I'd check how incidents get reported before spending on engagement. The same check on recruiting data showed channels can't be ranked until hire source is tracked.
 
-**Disengagement explains about 3% of the rise in accidents**
+**HR analytics · 1,470 employees · R**
 
 [Repo](https://github.com/lorisca-analytics/people-analytics-r) · [Certificate: HR Analytics in R (DataCamp)](https://www.datacamp.com/statement-of-accomplishment/course/0f0a451a6bb3359417b6edd76cd0318f2368d2e9) · [All case studies](https://lorisca-analytics.github.io)
 
@@ -304,7 +304,7 @@ Live-client engagements with real stakeholders and real constraints. Team-based 
 - [gig-worker-referral-platform](https://github.com/lorisca-analytics/gig-worker-referral-platform) - **Gig Worker Referral Platform** - The bank already banks these people. It just can't see their income.
 - [h1b-sponsorship-sql-analysis](https://github.com/lorisca-analytics/h1b-sponsorship-sql-analysis) - **Which Employers Reliably Sponsor H-1B Business Roles** - SQL analysis of 3.47M H-1B filings (2020–2023). The business-role wage premium survives on medians, then flips when IT managers are excluded.
 - [massachusetts-h1b-analysis](https://github.com/lorisca-analytics/massachusetts-h1b-analysis) - **Massachusetts H-1B Analysis** - Reading the Massachusetts labor market through five years of public H-1B filing data: which employers sponsor repeatedly, and do business roles pay as well as analytics roles?
-- [people-analytics-r](https://github.com/lorisca-analytics/people-analytics-r) - **Why accidents rose at every site** - The quick read said fund an engagement program at the one site where disengagement jumped.
+- [people-analytics-r](https://github.com/lorisca-analytics/people-analytics-r) - **HR analytics in R: why accidents rose at every site** - An HR analytics case on employee data from a 1,470-person company.
 - [recruitment-front-door](https://github.com/lorisca-analytics/recruitment-front-door) - **The recruitment front door** - Every screened candidate, from every portal, through one door.
 - [relay-ai-transformation](https://github.com/lorisca-analytics/relay-ai-transformation) - **AI everywhere, without automating the moat** - The board wanted AI everywhere. The people most exposed to it were the ones who held the community together, so I designed who owns each warning and where AI may act.
 - [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) - **Where Should We Spend the Next Ad Dollar?** - A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
