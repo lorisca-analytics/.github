@@ -102,3 +102,43 @@ test("Helpers", () => {
   assert.equal(repoOf({ links: [{ url: "https://github.com/o/r" }] }), "o/r");
   assert.equal(repoOf({ repo: "o/x", links: [] }), "o/x");
 });
+
+// ---------- Builds ----------
+import { buildBuilds, renderBuildsShipped, renderBuildsRepos, renderProfileBuilds } from "./sync-profile.mjs";
+const builds = JSON.parse(read("./fixtures/projects.json"));
+const buildsRepos = JSON.parse(read("./fixtures/builds-repos.json"));
+const buildsReadme = read("./fixtures/builds-readme.md");
+
+test("Builds Shipped lists every live build, one table each", () => {
+  const out = renderBuildsShipped(builds);
+  const live = builds.projects.filter((c) => c.status === "live");
+  assert.equal((out.match(/^### /gm) || []).length, live.length);
+  assert.equal((out.match(/<table>/g) || []).length, live.length);
+  assert.ok(!out.includes("·"), "middle dots are written as &#183;");
+});
+
+test("Builds images with a site path become full URLs", () => {
+  const out = renderBuildsShipped({ projects: [{ status: "live", title: "T", hook: "H", visual: "assets/x.svg" }] });
+  assert.ok(out.includes('src="https://lorisca-builds.github.io/assets/x.svg"'));
+});
+
+test("Builds repo list skips private and infra repos", () => {
+  const out = renderBuildsRepos(buildsRepos);
+  assert.ok(!out.includes("portfolio-pipeline"));
+  assert.ok(!out.includes("[.github]") && !out.includes("lorisca-builds.github.io]"));
+  assert.ok(out.includes("[lori-claude-skills](https://github.com/lorisca-builds/lori-claude-skills): "));
+});
+
+test("Builds page: second run changes nothing, outside text untouched", () => {
+  const once = buildBuilds(buildsReadme, builds, buildsRepos);
+  assert.equal(buildBuilds(once, builds, buildsRepos), once);
+  const outside = (s) => s.replace(/<!-- (\w+):START -->[\s\S]*?<!-- \1:END -->/g, "");
+  assert.equal(outside(once), outside(buildsReadme));
+});
+
+test("Personal profile Builds block is rebuilt", () => {
+  const doc = "<!-- REPOS:START:lorisca-analytics -->\n<!-- REPOS:END -->\nx\n<!-- REPOS:START:lorisca-builds -->\nold\n<!-- REPOS:END -->";
+  const out = buildProfile(doc, lanes, builds);
+  assert.ok(out.includes("- **[Open Loops Board](https://github.com/lorisca-builds/muse-adhd-project-manager)** - "));
+  assert.ok(!out.includes("old"));
+});
