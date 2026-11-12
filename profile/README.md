@@ -175,6 +175,23 @@ The board wanted AI everywhere. The people most exposed to it were the ones who 
 <tr>
 <td width="60%" valign="top">
 
+`STRATEGY & OPERATIONS`
+
+### Scoring a hardware launch before planning it
+
+A mask startup planned a five-city launch in 164 days across three companies. I scored the plan and rebuilt its critical path. The biggest risk was a deal no one governed.
+
+**25 dimensions · 3.48 of 4**
+
+[Repo](https://github.com/lorisca-analytics/hardware-launch-complexity) · [All case studies](https://lorisca-analytics.github.io)
+
+</td>
+<td width="40%" valign="top">
+</td>
+</tr>
+<tr>
+<td width="60%" valign="top">
+
 `CONSULTING`
 
 ### Gig Worker Referral Platform
@@ -260,7 +277,7 @@ SQL, machine learning, and BI built to support one decision, with limits stated.
 
 Business cases, pricing, and delivery: the numbers behind the story.
 
-**3 shipped** · 7 in the pipeline
+**4 shipped** · 6 in the pipeline
 
 </td>
 <td width="50%" valign="top">
@@ -301,7 +318,6 @@ Live-client engagements with real stakeholders and real constraints. Team-based 
 - Whether a Chilean neobank is actually revolutionary
 - A brand that outgrew its own positioning
 - Auditing an AI transformation pitch as the person funding it
-- Scoring a hardware launch before planning it
 - Designing a scorecard for a firm that only measured revenue
 
 **Consulting**
