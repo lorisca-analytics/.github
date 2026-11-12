@@ -8,7 +8,8 @@
 // Usage:
 //   node scripts/sync-profile.mjs --target org        print what would change
 //   node scripts/sync-profile.mjs --target org --write
-//   node scripts/sync-profile.mjs --target profile --write
+//   node scripts/sync-profile.mjs --target builds --write   (lorisca-builds/.github)
+//   node scripts/sync-profile.mjs --target profile --write  (lori-sca/lori-sca)
 //
 // Plain Node 20, no packages.
 
@@ -22,9 +23,20 @@ export const CONFIG = {
   siteUrl: "https://lorisca-analytics.github.io",
   // Cards shown in a hand-written section of the org page, so Shipped skips them.
   skipInShipped: ["massachusetts-h1b-analysis"],
+  builds: {
+    hubRepo: "lorisca-builds/lorisca-builds.github.io",
+    dataPath: "data/projects.json",
+    org: "lorisca-builds",
+    siteUrl: "https://lorisca-builds.github.io",
+  },
   targets: {
     org: { readme: "profile/README.md", hero: "profile/hero.svg" },
-    profile: { readme: "README.md", marker: "REPOS:START:lorisca-analytics" },
+    builds: { readme: "profile/README.md" },
+    profile: {
+      readme: "README.md",
+      marker: "REPOS:START:lorisca-analytics",
+      buildsMarker: "REPOS:START:lorisca-builds",
+    },
   },
 };
 
@@ -170,6 +182,74 @@ export function renderProfileRepos(lanesDoc) {
     .join("\n");
 }
 
+// ---------- Builds hub (data/projects.json: a flat list, no lanes) ----------
+
+export function liveBuilds(projectsDoc) {
+  return (projectsDoc.projects || []).filter((c) => c.status === "live");
+}
+
+// Org profile files keep the middle dot as an entity, so a paste through the
+// GitHub web editor cannot turn it into a stray character.
+const dots = (s) => String(s).replace(/·/g, "&#183;");
+
+function absolute(url, site) {
+  return /^https?:\/\//.test(url) ? url : `${site}/${url.replace(/^\.?\//, "")}`;
+}
+
+export function renderBuildsShipped(projectsDoc, site = CONFIG.builds.siteUrl) {
+  return liveBuilds(projectsDoc)
+    .map((card) => {
+      const links = (card.links || []).map((l) => `[${l.label}](${l.url})`).join(" &#183; ");
+      return [
+        "<table>",
+        "<tr>",
+        '<td width="60%" valign="top">',
+        "",
+        `### ${card.title}`,
+        "",
+        card.hook,
+        "",
+        ...(card.metric ? [`**${dots(card.metric)}**`, ""] : []),
+        links,
+        "",
+        "</td>",
+        '<td width="40%" valign="top">',
+        ...(card.visual
+          ? [`<img src="${absolute(card.visual, site)}" alt="${escapeAttr(card.visualAlt || card.title)}" width="100%">`]
+          : []),
+        "</td>",
+        "</tr>",
+        "</table>",
+      ].join("\n");
+    })
+    .join("\n\n");
+}
+
+// Builds repos are listed with their own GitHub description.
+export function renderBuildsRepos(repos) {
+  return repos
+    .filter((r) => !r.private && !r.fork && !r.archived && !INFRA(r.name))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((r) => `- [${r.name}](${r.html_url})${r.description ? ": " + r.description : ""}`)
+    .join("\n");
+}
+
+export function renderProfileBuilds(projectsDoc) {
+  return liveBuilds(projectsDoc)
+    .map((card) => {
+      const repo = repoOf(card);
+      const url = repo ? `https://github.com/${repo}` : (card.links?.[0]?.url ?? CONFIG.builds.siteUrl);
+      return `- **[${card.title}](${url})** - ${firstSentence(card.hook)}`;
+    })
+    .join("\n");
+}
+
+export function buildBuilds(readme, projectsDoc, repos) {
+  let out = replaceBlock(readme, "SHIPPED:START", renderBuildsShipped(projectsDoc));
+  out = replaceBlock(out, "REPOS:START", renderBuildsRepos(repos));
+  return out;
+}
+
 function escapeAttr(s) {
   return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 }
@@ -215,8 +295,10 @@ export function buildOrg(readme, lanesDoc, repos) {
   return out;
 }
 
-export function buildProfile(readme, lanesDoc) {
-  return replaceBlock(readme, CONFIG.targets.profile.marker, renderProfileRepos(lanesDoc));
+export function buildProfile(readme, lanesDoc, projectsDoc) {
+  let out = replaceBlock(readme, CONFIG.targets.profile.marker, renderProfileRepos(lanesDoc));
+  if (projectsDoc) out = replaceBlock(out, CONFIG.targets.profile.buildsMarker, renderProfileBuilds(projectsDoc));
+  return out;
 }
 
 // ---------- GitHub API ----------
@@ -234,8 +316,13 @@ export async function fetchLanes() {
   return JSON.parse(Buffer.from(file.content, "base64").toString("utf8"));
 }
 
-export async function fetchRepos() {
-  return api(`/orgs/${CONFIG.org}/repos?type=public&per_page=100`);
+export async function fetchRepos(org = CONFIG.org) {
+  return api(`/orgs/${org}/repos?type=public&per_page=100`);
+}
+
+export async function fetchBuilds() {
+  const file = await api(`/repos/${CONFIG.builds.hubRepo}/contents/${CONFIG.builds.dataPath}`);
+  return JSON.parse(Buffer.from(file.content, "base64").toString("utf8"));
 }
 
 // ---------- CLI ----------
@@ -244,19 +331,24 @@ async function main() {
   const args = process.argv.slice(2);
   const target = args[args.indexOf("--target") + 1];
   const write = args.includes("--write");
-  if (!CONFIG.targets[target]) throw new Error("Use --target org or --target profile");
+  if (!CONFIG.targets[target]) throw new Error("Use --target org, builds or profile");
 
-  const lanes = await fetchLanes();
   const files = [];
   const t = CONFIG.targets[target];
   const readme = await readFile(t.readme, "utf8");
   if (target === "org") {
+    const lanes = await fetchLanes();
     const repos = await fetchRepos();
     files.push([t.readme, readme, buildOrg(readme, lanes, repos)]);
     const hero = await readFile(t.hero, "utf8");
     files.push([t.hero, hero, updateHero(hero, lanes)]);
+  } else if (target === "builds") {
+    const builds = await fetchBuilds();
+    const repos = await fetchRepos(CONFIG.builds.org);
+    files.push([t.readme, readme, buildBuilds(readme, builds, repos)]);
   } else {
-    files.push([t.readme, readme, buildProfile(readme, lanes)]);
+    const [lanes, builds] = await Promise.all([fetchLanes(), fetchBuilds()]);
+    files.push([t.readme, readme, buildProfile(readme, lanes, builds)]);
   }
 
   const changed = files.filter(([, before, after]) => before !== after);
