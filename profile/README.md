@@ -85,6 +85,24 @@ An HR analytics case on employee data from a 1,470-person company. The quick rea
 <tr>
 <td width="60%" valign="top">
 
+`TALENT SYSTEMS`
+
+### Attrition was a promotion problem
+
+Field sales kept losing people after I fixed hiring. I joined intake, exit interview, performance and training records and traced the exits to team leaders promoted for their sales numbers alone. This repo rebuilds that view on synthetic data.
+
+**I cut department turnover about 15% (2023) and 17% (2024)**
+
+[Repo](https://github.com/lorisca-analytics/sales-attrition-evidence-layer) · [Dashboard](https://lorisca-analytics.github.io/sales-attrition-evidence-layer/) · [All case studies](https://lorisca-analytics.github.io)
+
+</td>
+<td width="40%" valign="top">
+<img src="https://raw.githubusercontent.com/lorisca-analytics/sales-attrition-evidence-layer/main/docs/dashboard-light.png" alt="Dashboard showing exits per 100 sellers by region and by how the team leader was promoted, raw and after controls" width="100%">
+</td>
+</tr>
+<tr>
+<td width="60%" valign="top">
+
 `ANALYTICS & MODELS`
 
 ### Where Should We Spend the Next Ad Dollar?
@@ -222,7 +240,7 @@ I'm on an F-1 visa. Finding the right role isn't the whole job search. I need an
 
 Hiring, retention, and workforce data.
 
-**4 shipped** · 2 in the pipeline
+**5 shipped** · 1 in the pipeline
 
 </td>
 <td width="50%" valign="top">
@@ -267,7 +285,6 @@ Live-client engagements with real stakeholders and real constraints. Team-based 
 
 <!-- PIPELINE:START -->
 **Talent Systems**
-- Attrition was a promotion problem
 - Making a gender-gap contradiction visible
 
 **Analytics & Models**
@@ -307,6 +324,7 @@ Live-client engagements with real stakeholders and real constraints. Team-based 
 - [people-analytics-r](https://github.com/lorisca-analytics/people-analytics-r) - **HR analytics in R: why accidents rose at every site** - An HR analytics case on employee data from a 1,470-person company.
 - [recruitment-front-door](https://github.com/lorisca-analytics/recruitment-front-door) - **The recruitment front door** - Every screened candidate, from every portal, through one door.
 - [relay-ai-transformation](https://github.com/lorisca-analytics/relay-ai-transformation) - **AI everywhere, without automating the moat** - The board wanted AI everywhere. The people most exposed to it were the ones who held the community together, so I designed who owns each warning and where AI may act.
+- [sales-attrition-evidence-layer](https://github.com/lorisca-analytics/sales-attrition-evidence-layer) - **Attrition was a promotion problem** - Field sales kept losing people after I fixed hiring. I joined intake, exit interview, performance and training records and traced the exits to team leaders promoted for their sales numbers alone.
 - [superstore-discount-ceiling](https://github.com/lorisca-analytics/superstore-discount-ceiling) - **Where Should We Spend the Next Ad Dollar?** - A marketing analytics lead has an ad budget and a room full of managers who read the business through sales volume.
 <!-- REPOS:END -->
 
